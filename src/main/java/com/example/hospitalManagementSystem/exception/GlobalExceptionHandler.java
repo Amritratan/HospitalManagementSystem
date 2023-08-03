@@ -3,7 +3,6 @@ package com.example.hospitalManagementSystem.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -23,7 +22,7 @@ public class GlobalExceptionHandler {
         ErrorDetails err = new ErrorDetails();
         err.setTimestamp(LocalDateTime.now());
         err.setMessage(ie.getMessage());
-        err.setDetails(req.getDescription(false));
+        err.setDetails(req.getDescription(true));
         return new ResponseEntity<ErrorDetails>(err, HttpStatus.BAD_REQUEST);
 
 
@@ -35,12 +34,13 @@ public class GlobalExceptionHandler {
         ErrorDetails err = new ErrorDetails();
         err.setTimestamp(LocalDateTime.now());
         err.setMessage(ie.getMessage());
-        err.setDetails(req.getDescription(false));
+        err.setDetails(req.getDescription(true));
         return new ResponseEntity<ErrorDetails>(err, HttpStatus.BAD_REQUEST);
 
 
 
     }
+
 
 
 

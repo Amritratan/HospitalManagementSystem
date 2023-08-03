@@ -1,10 +1,12 @@
-package com.example.hospitalManagementSystem.entities;
+package com.example.hospitalManagementSystem.entities.patient;
 
+import com.example.hospitalManagementSystem.enums.Gender;
+import com.example.hospitalManagementSystem.enums.VisitType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
-
-import javax.xml.transform.Source;
 
 
 @Entity
@@ -13,7 +15,7 @@ import javax.xml.transform.Source;
 @Getter
 @Setter
 @Table(name = "patient_table")
-public class Patient {
+public class Registration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +24,7 @@ public class Patient {
     @NotNull(message = "Name is mandatory")
     private String name;
 
+    @Pattern(regexp = "^[0-9]{10}$", message = "Invalid mobile number")
     private String number;
 
     private String address;
@@ -29,6 +32,7 @@ public class Patient {
     private String emergencyNo;
 
 
+    @Email
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -46,6 +50,10 @@ public class Patient {
 
     @NotNull(message = "Assign doctor name")
     private String department;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "visit_type")
+    private VisitType visitType;
 
 
     }

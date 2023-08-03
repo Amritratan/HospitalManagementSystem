@@ -16,6 +16,6 @@
 //        private String departmentAddress;
 //
 //        @OneToMany(mappedBy = "department")
-//        private List<Patient> patients;
+//        private List<Registration> patients;
 //
 //    }

@@ -19,5 +19,5 @@
 //    private String doctorPhone;
 //
 //    @OneToMany(mappedBy = "doctor")
-//    private List<Patient> patients;
+//    private List<Registration> patients;
 //}

@@ -20,6 +20,6 @@
 //    private String sponsorPhone;
 //
 //    @OneToMany(mappedBy = "sponsor")
-//    private List<Patient> patients;
+//    private List<Registration> patients;
 //
 //}
